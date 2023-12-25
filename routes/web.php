@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Title2Controller;
+use App\Http\Controllers\TitleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('/dashboard')->as('dashboard.')->middleware('auth')->group(function(){
+    Route::resource('first-title', TitleController::class);
+    Route::resource('second-title', Title2Controller::class);
+});

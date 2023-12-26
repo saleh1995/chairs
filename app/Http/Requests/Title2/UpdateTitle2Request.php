@@ -22,7 +22,7 @@ class UpdateTitle2Request extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255', 'unique:title2_translations,name,' . $this->route('title')],
+            'name' => ['required', 'string', 'max:255', 'unique:title2_translations,name,' . $this->route('second_title')],
             'locale' => ['required', 'string', 'in:ar,en'],
         ];
     }

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class TitleController extends Controller
 {
     public function index(){
-      $collection = Title::paginate(1);
+      $collection = Title::paginate();
 
       return view('first-title.index', compact('collection'));
     }

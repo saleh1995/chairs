@@ -22,8 +22,9 @@ class StoreTitle2Request extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255', 'unique:title2_translations,name'],
-            'locale' => ['required', 'string', 'in:ar,en'],
+            'name_ar' => ['required', 'string', 'max:255', 'unique:title2_translations,name'],
+            'name_en' => ['required', 'string', 'max:255', 'unique:title2_translations,name'],
+            // 'locale' => ['required', 'string', 'in:ar,en'],
         ];
     }
 }

@@ -1,0 +1,29 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">{{ __('تعديل بيانات فئة ') }}</div>
+
+                <div class="card-body">
+                    <div>
+                        <label for="">الاسم : </label>
+                        <p>
+                            {{ $item->name }}
+                        </p>
+                    </div>
+                    <div>
+                        <label for="">اللون : </label>
+                        <p style="width: 10px; height: 10px; background-color: {{ $item->color }}">
+                            
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

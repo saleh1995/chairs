@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Title;
 
+use App\Models\Title;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateTitleRequest extends FormRequest
@@ -21,9 +22,11 @@ class UpdateTitleRequest extends FormRequest
      */
     public function rules(): array
     {
+        $title = Title::find($this->route('first_title'));
         return [
-            'name' => ['required', 'string', 'max:255', 'unique:title_translations,name,' . $this->route('first_title')],
-            'locale' => ['required', 'string', 'in:ar,en'],
+            'name_ar' => ['required', 'string', 'max:255', 'unique:title_translations,name,' . $title->translate('ar')->id],
+            'name_en' => ['required', 'string', 'max:255', 'unique:title_translations,name,' . $title->translate('en')->id],
+            // 'locale' => ['required', 'string', 'in:ar,en'],
         ];
     }
 }
